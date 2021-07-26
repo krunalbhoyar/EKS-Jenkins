@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('cloning code from git') {
             steps {
-                git '**************https://github.com/krunalbhoyar/ip_url.git'
+                git 'https://github.com/krunalbhoyar/EKS-Jenkins.git'
             }
         }
         stage('Install Terraform') {
@@ -21,8 +21,8 @@ pipeline {
                 sh 'terraform init'
                 sh 'terraform validate'
                 sh 'terraform plan'
-                sh 'terraform apply -auto-approve'
-                sh 'aws eks --region us-east-1 update-kubeconfig --name eks --profile terraform' #To access kubernetes cluster
+                #sh 'terraform apply -auto-approve'
+                #sh 'aws eks --region us-east-1 update-kubeconfig --name eks --profile terraform' #To access kubernetes cluster
             }
         }
     }
