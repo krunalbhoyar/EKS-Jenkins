@@ -15,3 +15,8 @@ echo us-east-1
 sleep 10
 echo json
 } | aws configure --profile terraform
+
+
+in jenkins groovy script "sudo" command will not work, so add this line to /etc/sudoers file as a root user
+$sudo vim /etc/sudoers
+jenkins ALL=(ALL) NOPASSWD: ALL
