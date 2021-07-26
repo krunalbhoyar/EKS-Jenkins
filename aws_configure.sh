@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-apt-get update
-apt install awscli -y
+sudo apt-get update
+sudo apt install awscli -y
 
 {
 echo $AWS_Access_Key
