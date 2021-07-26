@@ -19,17 +19,15 @@ pipeline {
                 sh './aws_configure.sh'
                 sh 'ls'
                 sh 'pwd'
-                dir("TF-Scripts") {
-                    sh 'pwd'
-                 }
+                dir("TF-Scripts") {      //as cd command is not working
                 sh 'pwd'
-                //sh 'cd TF-Scripts'
                 sh 'ls'
                 sh 'terraform init'
                 sh 'terraform validate'
                 sh 'terraform plan'
                 //sh 'terraform apply -auto-approve'
                 //sh 'aws eks --region us-east-1 update-kubeconfig --name eks --profile terraform' #To access kubernetes cluster
+                }
             }
         }
     }
