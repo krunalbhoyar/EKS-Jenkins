@@ -18,9 +18,11 @@ pipeline {
                 sh 'chmod +x aws_configure.sh'
                 sh './aws_configure.sh'
                 sh 'ls'
+                sh 'pwd'
                 dir("TF-Scripts") {
-                    sh "pwd"
+                    sh 'pwd'
                  }
+                sh 'pwd'
                 //sh 'cd TF-Scripts'
                 sh 'ls'
                 sh 'terraform init'
