@@ -18,7 +18,7 @@ pipeline {
                 sh 'chmod +x aws_configure.sh'
                 sh './aws_configure.sh'
                 sh 'ls'
-                sh 'cd TF-Scripts/'
+                sh 'cd TF-Scripts'
                 sh 'ls'
                 sh 'terraform init'
                 sh 'terraform validate'
