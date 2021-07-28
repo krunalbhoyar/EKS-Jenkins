@@ -21,6 +21,8 @@ in jenkins groovy script "sudo" command will not work, so add this line to /etc/
 $sudo vim /etc/sudoers
 jenkins ALL=(ALL) NOPASSWD: ALL
 
+usermod -a -G sudo jenkins
+
 to access cluster run command prasent in pipeline script
 $snap install kubectl --classic
 $aws eks --region us-east-1 update-kubeconfig --name eks --profile terraform
