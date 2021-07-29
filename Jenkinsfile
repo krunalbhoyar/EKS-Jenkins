@@ -25,9 +25,9 @@ pipeline {
                 sh 'terraform init'
                 sh 'terraform validate'
                 sh 'terraform plan'
-                //sh 'terraform apply -auto-approve'
-                //sh 'snap install kubectl --classic'
-                //sh 'aws eks --region us-east-1 update-kubeconfig --name eks --profile terraform' //To access kubernetes cluster
+                sh 'terraform apply -auto-approve'
+                sh 'snap install kubectl --classic'
+                sh 'aws eks --region us-east-1 update-kubeconfig --name eks --profile terraform' //To access kubernetes cluster
                 }
             }
         }
