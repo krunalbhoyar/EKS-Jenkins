@@ -25,9 +25,9 @@ pipeline {
                 //sh 'terraform init'
                 //sh 'terraform validate'
                 //sh 'terraform plan'
-                //sh 'terraform apply -auto-approve'
-                sh 'sudo snap install kubectl --classic'
-                sh 'sudo aws eks --region us-east-1 update-kubeconfig --name eks --profile terraform' //To access kubernetes cluster
+                sh 'terraform destroy -auto-approve'
+                //sh 'sudo snap install kubectl --classic'
+                //sh 'sudo aws eks --region us-east-1 update-kubeconfig --name eks --profile terraform' //To access kubernetes cluster
                 }
             }
         }
