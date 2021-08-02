@@ -23,16 +23,39 @@ jenkins ALL=(ALL) NOPASSWD: ALL
 
 usermod -a -G sudo jenkins
 
+
+
 to access cluster run command prasent in pipeline script
 $snap install kubectl --classic
 $aws eks --region us-east-1 update-kubeconfig --name eks --profile terraform
 
 $cat ~/.kube/config
-$cat ~/.aws/config
-$cat ~/.aws/credentials
+$cat ~/.aws/config ______________--this is present at "/var/lib/jenkins/.aws/credentials"
+$cat ~/.aws/credentials ______________--this is present at "/var/lib/jenkins/.aws/config"
 
 >>add this in eks file 
 
 output "endpoint" {
   value = aws_eks_cluster.eks.endpoint
 }
+
+to connect eks cluster from terminal watch video
+>>  https://www.youtube.com/watch?v=aZd0UolVwD4
+
+1)To install aws-iam-authenticator on Linux
+$ curl -o aws-iam-authenticator https://amazon-eks.s3-us-west-2.amazonaws.com/1.21.2/2021-07-05/bin/linux/amd64/aws-iam-authenticator
+
+2)Apply execute permissions to the binary.
+$  chmod +x ./aws-iam-authenticator
+
+$ mkdir -p $HOME/bin && cp ./aws-iam-authenticator $HOME/bin/aws-iam-authenticator && export PATH=$PATH:$HOME/bin
+
+3)Install kubectl aws
+Kubernetes 1.21:
+curl -o kubectl https://amazon-eks.s3-us-west-2.amazonaws.com/1.21.2/2021-07-05/bin/linux/amd64/kubectl
+
+4)Apply execute permissions to the binary.
+$ chmod +x ./kubectl
+$ mkdir -p $HOME/bin && cp ./kubectl $HOME/bin/kubectl && export PATH=$PATH:$HOME/bin
+$ $aws eks --region us-east-1 update-kubeconfig --name eks --profile terraform
+$ export KUBECONFIG=~/.kube/config
