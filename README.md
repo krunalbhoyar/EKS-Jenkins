@@ -41,7 +41,9 @@ output "endpoint" {
 
 to connect eks cluster from terminal watch video
 >>  https://www.youtube.com/watch?v=aZd0UolVwD4
+
 0)install aws cli then configure aws
+$ apt update
 $ sudo apt install awscli -y
 $ aws configure --profile terraform
 
@@ -62,20 +64,4 @@ $ chmod +x ./kubectl
 $ mkdir -p $HOME/bin && cp ./kubectl $HOME/bin/kubectl && export PATH=$PATH:$HOME/bin
 $ $ aws eks --region us-east-1 update-kubeconfig --name eks --profile terraform
 $ export KUBECONFIG=~/.kube/config
-
-
- apt update
-      sudo apt install awscli -y
-      aws configure --profile terraform
-      curl -o aws-iam-authenticator https://amazon-eks.s3-us-west-2.amazonaws.com/1.21.2/2021-07-05/bin/linux/amd64/aws-iam-authenticator
-    
-      chmod +x ./aws-iam-authenticator
-      mkdir -p $HOME/bin && cp ./aws-iam-authenticator $HOME/bin/aws-iam-authenticator && export PATH=$PATH:$HOME/bin
-      curl -o kubectl https://amazon-eks.s3-us-west-2.amazonaws.com/1.21.2/2021-07-05/bin/linux/amd64/kubectl
-      chmod +x ./kubectl
-     ls
-     mkdir -p $HOME/bin && cp ./kubectl $HOME/bin/kubectl && export PATH=$PATH:$HOME/bin
-     aws eks --region us-east-1 update-kubeconfig --name eks --profile terraform
-     export KUBECONFIG=~/.kube/config
-     kubectl get svc
-   15  kubectl get all
+$ kubectl get svc
